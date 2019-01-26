@@ -1,0 +1,22 @@
+<fieldset>
+ 
+
+<h2> Animalerie </h2>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<form action="{% url 'polls:ajouter' %}" method="post">
+{% csrf_token %}
+
+<h2> Ajouter animal </h2>
+  Animal name:<br>
+  <input type="text" name="animalname" required><br>
+  Animal race:<br>
+  <input type="text" name="animalrace" required><br>
+  Animal type:<br>
+  <input type="text" name="animaltype" required><br><br>
+
+<input type="submit" value="Ajouter">
+<input formaction = "{% url 'polls:index' %}" type="submit" value="Canceler" formnovalidate>
+</form>
+</fieldset>

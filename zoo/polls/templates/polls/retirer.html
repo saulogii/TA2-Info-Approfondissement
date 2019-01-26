@@ -1,0 +1,30 @@
+<fieldset>
+ 
+
+<h2> Animalerie </h2>
+
+{% if latest_animal_list %}
+    <ul>
+    {% for animal in latest_animal_list %}
+        <li>{{ animal.animal_name }}, {{animal.etat}}, {{animal.lieu}}</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<form action="{% url 'polls:retirer' %}" method="post">
+{% csrf_token %}
+
+<h2> Retirer animal </h2>
+{% for animal in latest_animal_list %}
+    <input type="radio" name="anichoice" id="animal{{ forloop.counter }}" value="{{ animal.id }}">
+    <label for="animal{{ forloop.counter }}">{{ animal.animal_name }}</label><br>
+{% endfor %}
+
+<input type="submit" value="Retirer">
+<input formaction = "{% url 'polls:index' %}" type="submit" value="Canceler">
+</form>
+</fieldset>
