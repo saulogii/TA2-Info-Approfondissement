@@ -1,5 +1,5 @@
 # TA2-Info-Approfondissement
-Pour accéder à la animalerie, ouvrez le terminal dans le fichier zoo
+Pour accéder à la animalerie, ouvrez le terminal dans le fichier zoo, il aura un fichier python manage.py
 'cd .../zoo'
 
 Et ensuite
